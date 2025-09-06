@@ -5,7 +5,7 @@ const int Dry = 475; // threshold to consider plant soil dry using soil moisture
 const int Wet = 185; // treshold to consider soil moisture wet
 const int plant_count = 3;
 
-int sensorpins[plant_count] = { A0, A1, A2};
+int sensorpins[plant_count] = { A3, A1, A2};
 int Relaypins[plant_count] = { 2, 3, 4}; 
 
 int soil_moisture_detect(int sensorpins){
@@ -36,6 +36,7 @@ void loop() {
   for (int i = 0; i < plant_count; i++) {
     int moisture = soil_moisture_detect(sensorpins[i]);
     Serial.println("plant" + String(i) + "moisture is:" + String(moisture));
+  
 
     if (moisture > Dry){
       waterplants(Relaypins[i], 3000);
