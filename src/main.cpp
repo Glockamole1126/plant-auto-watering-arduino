@@ -1,11 +1,11 @@
 #include <Arduino.h>
 
 // put function declarations here:
-const int Dry = 475; // threshold to consider plant soil dry using soil moisture detector
+const int Dry = 400; // threshold to consider plant soil dry using soil moisture detector
 const int Wet = 185; // treshold to consider soil moisture wet
 const int plant_count = 3;
 
-int sensorpins[plant_count] = { A3, A1, A2};
+int sensorpins[plant_count] = { A0, A1, A2};
 int Relaypins[plant_count] = { 2, 3, 4}; 
 
 int soil_moisture_detect(int sensorpins){
@@ -18,7 +18,6 @@ void waterplants( int Relaypins, int durationMS = 3000){
   delay(durationMS);
   digitalWrite(Relaypins, HIGH);
 }
-
 
 
 
